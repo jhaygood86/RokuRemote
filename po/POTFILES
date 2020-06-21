@@ -1,0 +1,7 @@
+data/com.reaktix.RokuRemote.desktop.in
+data/com.reaktix.RokuRemote.appdata.xml.in
+data/com.reaktix.RokuRemote.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
