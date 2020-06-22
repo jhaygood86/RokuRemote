@@ -49,6 +49,7 @@ namespace Rokuremote {
 
 		    configure_roku_selector();
 
+            back_button.clicked.connect(on_back_clicked);
             preferences_button.clicked.connect(on_preferences_clicked);
 		    home_button.clicked.connect(on_home_clicked);
 		    up_button.clicked.connect(on_up_clicked);
@@ -92,24 +93,29 @@ namespace Rokuremote {
             ok_button.sensitive = true;
 		}
 
+		private void press_roku_key(string key){
+		   var roku_device = roku_manager.get_device(device_list.active_id);
+		   roku_device.press_key(key);
+		}
+
+		private void on_back_clicked(Gtk.Button back_button){
+		    press_roku_key("back");
+		}
+
 		private void on_home_clicked(Gtk.Button home_button){
-            var roku_device = roku_manager.get_device(device_list.active_id);
-            roku_device.press_key("home");
+		    press_roku_key("home");
 		}
 
 		private void on_preferences_clicked(Gtk.Button preferences_button){
-            var roku_device = roku_manager.get_device(device_list.active_id);
-            roku_device.press_key("info");
+		    press_roku_key("info");
 		}
 
 		private void on_up_clicked(Gtk.Button up_button){
-		    var roku_device = roku_manager.get_device(device_list.active_id);
-		    roku_device.press_key("up");
+		    press_roku_key("up");
 		}
 
 		private void on_ok_clicked(Gtk.Button ok_button){
-		    var roku_device = roku_manager.get_device(device_list.active_id);
-		    roku_device.press_key("select");
+		    press_roku_key("select");
 		}
 	}
 }

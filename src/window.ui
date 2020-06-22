@@ -109,6 +109,26 @@
           </packing>
         </child>
         <child>
+          <object class="GtkButton" id="left_button">
+            <property name="label">Left
+</property>
+            <property name="width_request">120</property>
+            <property name="height_request">120</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="always_show_image">True</property>
+            <style>
+              <class name="roku-dpad-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">60</property>
+            <property name="y">320</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkButton" id="ok_button">
             <property name="label">gtk-ok</property>
             <property name="width_request">120</property>
