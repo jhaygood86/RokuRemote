@@ -12,3 +12,4 @@ default=true
 
 [default.environment]
 G_ENABLE_DIAGNOSTIC=1
+LD_LIBRARY_PATH=/home/jhaygood/.cache/gnome-builder/install/RokuRemote/host/lib/x86_64-linux-gnu

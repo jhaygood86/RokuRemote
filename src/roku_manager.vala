@@ -15,7 +15,7 @@ namespace Rokuremote {
 
         public RokuManager(){
             roku_device_map = new Gee.HashMap<string,RokuDevice>();
-            roku_device_row_map = new Gee.HashMap<string,TreeIter>();
+            roku_device_row_map = new Gee.HashMap<string,TreeIter?>();
 
             _roku_devices = new Gtk.ListStore(2, typeof(string), typeof(string));
         }

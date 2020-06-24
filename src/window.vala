@@ -37,6 +37,15 @@ namespace Rokuremote {
 	    [GtkChild]
 	    Gtk.Button ok_button;
 
+	    [GtkChild]
+	    Gtk.Button left_button;
+
+	    [GtkChild]
+	    Gtk.Button right_button;
+
+	    [GtkChild]
+	    Gtk.Button down_button;
+
 		private RokuManager roku_manager;
 
 		public Window (Gtk.Application app) {
@@ -54,11 +63,14 @@ namespace Rokuremote {
 		    home_button.clicked.connect(on_home_clicked);
 		    up_button.clicked.connect(on_up_clicked);
 		    ok_button.clicked.connect(on_ok_clicked);
+		    left_button.clicked.connect(on_left_clicked);
+		    right_button.clicked.connect(on_right_clicked);
+		    down_button.clicked.connect(on_down_clicked);
 		}
 
 		private void configure_style(){
 
-            string css = ".roku-dpad-button { background-color: #662d91; }";
+            string css = ".roku-dpad-button { background-color: #662d91; color: #ffffff }";
 
             Gtk.CssProvider css_provider = new Gtk.CssProvider();
             css_provider.load_from_data(css);
@@ -91,6 +103,9 @@ namespace Rokuremote {
             preferences_button.sensitive = true;
             up_button.sensitive = true;
             ok_button.sensitive = true;
+            left_button.sensitive = true;
+            right_button.sensitive = true;
+            down_button.sensitive = true;
 		}
 
 		private void press_roku_key(string key){
@@ -116,6 +131,18 @@ namespace Rokuremote {
 
 		private void on_ok_clicked(Gtk.Button ok_button){
 		    press_roku_key("select");
+		}
+
+		private void on_left_clicked(Gtk.Button left_button){
+		    press_roku_key("left");
+		}
+
+		private void on_right_clicked(Gtk.Button right_button){
+		    press_roku_key("right");
+		}
+
+		private void on_down_clicked(Gtk.Button down_button){
+		    press_roku_key("down");
 		}
 	}
 }

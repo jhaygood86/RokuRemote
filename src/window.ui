@@ -4,44 +4,50 @@
   <requires lib="gtk+" version="3.20"/>
   <template class="RokuremoteWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
-    <property name="default_width">600</property>
-    <property name="default_height">300</property>
+    <property name="default_width">320</property>
+    <property name="default_height">600</property>
     <child>
       <object class="GtkFixed">
         <property name="name">layout</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkLabel">
-            <property name="width_request">100</property>
+          <object class="GtkInfoBar" id="info_bar">
+              <property name="width_request">320</property>
+              <property name="height_request">40</property>
+              <property name="visible">True</property>
+              <child>
+                <object class="GtkComboBox" id="device_list">
+                  <property name="width_request">280</property>
+                  <property name="height_request">20</property>
+                  <property name="visible">True</property>
+                  <property name="can_focus">False</property>
+                </object>
+                <packing>
+                  <property name="x">20</property>
+                  <property name="y">20</property>
+                </packing>
+              </child>
+          </object>
+        </child>
+        <!--
+        <child>
+          <object class="GtkComboBox" id="device_list">
+            <property name="width_request">280</property>
             <property name="height_request">20</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Select Roku Device
-</property>
           </object>
           <packing>
             <property name="x">20</property>
             <property name="y">20</property>
           </packing>
-        </child>
-        <child>
-          <object class="GtkComboBox" id="device_list">
-            <property name="width_request">300</property>
-            <property name="height_request">20</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="x">170</property>
-            <property name="y">20</property>
-          </packing>
-        </child>
+        </child>-->
         <child>
           <object class="GtkButton" id="back_button">
-            <property name="label">gtk-go-back</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">Back</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -56,9 +62,9 @@
         </child>
         <child>
           <object class="GtkButton" id="preferences_button">
-            <property name="label">gtk-preferences</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">Settings</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -67,15 +73,15 @@
             <property name="always_show_image">True</property>
           </object>
           <packing>
-            <property name="x">180</property>
+            <property name="x">120</property>
             <property name="y">60</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="home_button">
-            <property name="label">gtk-home</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">Home</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -84,15 +90,15 @@
             <property name="always_show_image">True</property>
           </object>
           <packing>
-            <property name="x">360</property>
+            <property name="x">220</property>
             <property name="y">60</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="up_button">
-            <property name="label">gtk-go-up</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">Up</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -104,16 +110,15 @@
             </style>
           </object>
           <packing>
-            <property name="x">180</property>
-            <property name="y">200</property>
+            <property name="x">120</property>
+            <property name="y">160</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="left_button">
-            <property name="label">Left
-</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">Left</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -124,15 +129,15 @@
             </style>
           </object>
           <packing>
-            <property name="x">60</property>
-            <property name="y">320</property>
+            <property name="x">40</property>
+            <property name="y">240</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="ok_button">
-            <property name="label">gtk-ok</property>
-            <property name="width_request">120</property>
-            <property name="height_request">120</property>
+            <property name="label">OK</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -144,7 +149,45 @@
             </style>
           </object>
           <packing>
-            <property name="x">180</property>
+            <property name="x">120</property>
+            <property name="y">240</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="right_button">
+            <property name="label">Right</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="always_show_image">True</property>
+            <style>
+              <class name="roku-dpad-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">240</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="down_button">
+            <property name="label">Down</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="always_show_image">True</property>
+            <style>
+              <class name="roku-dpad-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">120</property>
             <property name="y">320</property>
           </packing>
         </child>
