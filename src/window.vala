@@ -46,6 +46,15 @@ namespace Rokuremote {
 	    [GtkChild]
 	    Gtk.Button down_button;
 
+	    [GtkChild]
+	    Gtk.Button rwd_button;
+
+	    [GtkChild]
+	    Gtk.Button play_button;
+
+	    [GtkChild]
+	    Gtk.Button ffwd_button;
+
 		private RokuManager roku_manager;
 
 		public Window (Gtk.Application app) {
@@ -66,6 +75,9 @@ namespace Rokuremote {
 		    left_button.clicked.connect(on_left_clicked);
 		    right_button.clicked.connect(on_right_clicked);
 		    down_button.clicked.connect(on_down_clicked);
+		    rwd_button.clicked.connect(on_rewind_clicked);
+		    play_button.clicked.connect(on_play_clicked);
+		    ffwd_button.clicked.connect(on_fastforward_clicked);
 		}
 
 		private void configure_style(){
@@ -106,6 +118,9 @@ namespace Rokuremote {
             left_button.sensitive = true;
             right_button.sensitive = true;
             down_button.sensitive = true;
+            rwd_button.sensitive = true;
+            play_button.sensitive = true;
+            ffwd_button.sensitive = true;
 		}
 
 		private void press_roku_key(string key){
@@ -143,6 +158,18 @@ namespace Rokuremote {
 
 		private void on_down_clicked(Gtk.Button down_button){
 		    press_roku_key("down");
+		}
+
+		private void on_rewind_clicked(Gtk.Button rewind_button){
+		    press_roku_key("rev");
+		}
+
+		private void on_play_clicked(Gtk.Button play_button){
+		    press_roku_key("play");
+		}
+
+		private void on_fastforward_clicked(Gtk.Button forward_button){
+		    press_roku_key("fwd");
 		}
 	}
 }

@@ -9,8 +9,9 @@ rokuremote_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
   dependency('libsoup-2.4', version: '>= 2.62'),
-  dependency('gssdp-1.0', version: '>= 1.0.0'),
-  dependency('gupnp-1.0', version: '>= 1.0.0'),
+  dependency('gssdp-1.2', version: '>= 1.0.0'),
+  dependency('gupnp-1.2', version: '>= 1.0.0'),
+  dependency('gee-0.8'),
   dependency('gxml-0.18', fallback : [ 'gxml', 'libgxml_dep' ])
 ]
 

@@ -51,7 +51,7 @@ namespace Rokuremote {
             var session = new Soup.Session();
             var message = new Soup.Message("POST",keypress_url);
 
-            session.send_message(message);
+            session.queue_message(message, null);
         }
     }
 }
