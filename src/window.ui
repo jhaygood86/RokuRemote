@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
+<!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="RokuremoteWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="default_width">320</property>
-    <property name="default_height">600</property>
+    <property name="default_height">520</property>
     <child>
       <object class="GtkFixed">
         <property name="name">layout</property>
@@ -67,7 +67,7 @@
           <object class="GtkButton" id="up_button">
             <property name="label">Up</property>
             <property name="width_request">80</property>
-            <property name="height_request">80</property>
+            <property name="height_request">120</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -76,6 +76,7 @@
             <property name="always_show_image">True</property>
             <style>
               <class name="roku-dpad-button"/>
+              <class name="roku-up-button"/>
             </style>
           </object>
           <packing>
@@ -95,30 +96,11 @@
             <property name="always_show_image">True</property>
             <style>
               <class name="roku-dpad-button"/>
+              <class name="roku-left-button"/>
             </style>
           </object>
           <packing>
             <property name="x">40</property>
-            <property name="y">240</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="ok_button">
-            <property name="label">OK</property>
-            <property name="width_request">80</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="sensitive">False</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="use_stock">True</property>
-            <property name="always_show_image">True</property>
-            <style>
-              <class name="roku-dpad-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="x">120</property>
             <property name="y">240</property>
           </packing>
         </child>
@@ -134,6 +116,7 @@
             <property name="always_show_image">True</property>
             <style>
               <class name="roku-dpad-button"/>
+              <class name="roku-right-button"/>
             </style>
           </object>
           <packing>
@@ -145,7 +128,7 @@
           <object class="GtkButton" id="down_button">
             <property name="label">Down</property>
             <property name="width_request">80</property>
-            <property name="height_request">80</property>
+            <property name="height_request">120</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
@@ -153,11 +136,33 @@
             <property name="always_show_image">True</property>
             <style>
               <class name="roku-dpad-button"/>
+              <class name="roku-down-button"/>
             </style>
           </object>
           <packing>
             <property name="x">120</property>
-            <property name="y">320</property>
+            <property name="y">280</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="ok_button">
+            <property name="label">OK</property>
+            <property name="width_request">80</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <style>
+              <class name="roku-dpad-button"/>
+              <class name="roku-ok-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">120</property>
+            <property name="y">240</property>
           </packing>
         </child>
         <child>

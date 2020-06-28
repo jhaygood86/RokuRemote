@@ -41,8 +41,6 @@ namespace Rokuremote {
             var device_name_node = document.query_selector("user-device-name");
 
             _name = device_name_node.text_content;
-
-            GLib.debug(_name);
         }
 
         public void press_key(string button){

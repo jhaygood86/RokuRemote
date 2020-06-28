@@ -1,0 +1,41 @@
+.roku-dpad-button { background-color: #662d91; color: #ffffff; padding: 0; margin: 0; border: 0 }
+
+
+.roku-left-button {
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 25%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+.roku-up-button {
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 0%;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 0%;
+  padding-bottom: 40px
+}
+
+.roku-right-button {
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+
+.roku-down-button {
+  padding-top: 40px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 25%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 25%;
+}
+
+.roku-ok-button {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border: 1px solid white;
+}

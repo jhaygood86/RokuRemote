@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/com/reaktix/RokuRemote">
     <file>window.ui</file>
+    <file>window.css</file>
   </gresource>
 </gresources>

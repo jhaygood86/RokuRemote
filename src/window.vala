@@ -78,14 +78,15 @@ namespace Rokuremote {
 		    rwd_button.clicked.connect(on_rewind_clicked);
 		    play_button.clicked.connect(on_play_clicked);
 		    ffwd_button.clicked.connect(on_fastforward_clicked);
+
+		    Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
+
 		}
 
 		private void configure_style(){
 
-            string css = ".roku-dpad-button { background-color: #662d91; color: #ffffff }";
-
             Gtk.CssProvider css_provider = new Gtk.CssProvider();
-            css_provider.load_from_data(css);
+            css_provider.load_from_resource("/com/reaktix/RokuRemote/window.css");
 
             var screen = Gdk.Screen.get_default();
             Gtk.StyleContext.add_provider_for_screen(screen,css_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
