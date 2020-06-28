@@ -1,7 +1,9 @@
 [Desktop Entry]
-Name=rokuremote
+Name=Roku Remote
 Exec=rokuremote
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=GTK;Video;
+Icon=com.reaktix.RokuRemote
 StartupNotify=true
+Keywords=Roku;Remote

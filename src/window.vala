@@ -80,7 +80,6 @@ namespace Rokuremote {
 		    ffwd_button.clicked.connect(on_fastforward_clicked);
 
 		    Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
-
 		}
 
 		private void configure_style(){
