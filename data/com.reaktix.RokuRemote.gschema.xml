@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="rokuremote">
-	<schema id="com.reaktix.RokuRemote" path="/com/reaktix/RokuRemote/">
-	</schema>
+<schemalist>
+  <schema path="/com/reaktix/rokuremote/" id="com.reaktix.RokuRemote">
+    <key name="last-used-device-usn" type="s">
+      <default>""</default>
+      <summary>Last Used Device USN</summary>
+      <description>Stores the USN of the last used Roku device</description>
+    </key>
+  </schema>
 </schemalist>

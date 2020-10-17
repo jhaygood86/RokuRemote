@@ -1,14 +1,14 @@
 {
     "app-id" : "com.reaktix.RokuRemote",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.36",
+    "runtime-version" : "3.38",
     "sdk" : "org.gnome.Sdk",
     "command" : "rokuremote",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
-        "--socket=wayland",
+        "--socket=wayland"
     ],
     "cleanup" : [
         "/include",
@@ -31,8 +31,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.2.tar.xz",
-                    "sha256" : "cabb9e3b456b8354a55e23eb0207545d974643cda6d623523470ebbc4188b0a4"
+                    "url" : "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.3.tar.xz",
+                    "sha256" : "a263dcb6730e3b3dc4bbbff80cf3fab4cd364021981d419db6dd5a8e148aa7e8"
                 }
             ]
         },
@@ -42,8 +42,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.2.tar.xz",
-                    "sha256" : "9a80bd953e5c8772ad26b72f8da01cbe7241a113edd6084903f413ce751c9989"
+                    "url" : "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.4.tar.xz",
+                    "sha256" : "f7a0307ea51f5e44d1b832f493dd9045444a3a4e211ef85dfd9aa5dd6eaea7d1"
                 }
             ]
         },
@@ -53,8 +53,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gxml/0.18/gxml-0.18.1.tar.xz",
-                    "sha256" : "bac5bc82c39423c1dbbfd89235f4a9b03b69cfcd3188905359ce81747b6400ed"
+                    "url" : "https://download.gnome.org/sources/gxml/0.20/gxml-0.20.0.tar.xz",
+                    "sha256" : "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
                 }
             ]
         },

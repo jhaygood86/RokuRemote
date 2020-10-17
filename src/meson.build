@@ -12,7 +12,7 @@ rokuremote_deps = [
   dependency('gssdp-1.2', version: '>= 1.0.0'),
   dependency('gupnp-1.2', version: '>= 1.0.0'),
   dependency('gee-0.8'),
-  dependency('gxml-0.18', fallback : [ 'gxml', 'libgxml_dep' ])
+  dependency('gxml-0.20', fallback : [ 'gxml', 'libgxml_dep' ])
 ]
 
 gnome = import('gnome')

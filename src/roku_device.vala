@@ -37,7 +37,7 @@ namespace Rokuremote {
 
             var memory_input_stream = new MemoryInputStream.from_data(message.response_body.data);
 
-            var document = new GDocument.from_stream(memory_input_stream);
+            var document = new Document.from_stream(memory_input_stream);
             var device_name_node = document.query_selector("user-device-name");
 
             _name = device_name_node.text_content;

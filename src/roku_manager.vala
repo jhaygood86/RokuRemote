@@ -51,11 +51,9 @@ namespace Rokuremote {
 
             TreeIter? device_row;
 
-            _roku_devices.append(out device_row);
-
+            _roku_devices.insert_with_values(out device_row,-1,0,roku_device.name,1,roku_device.usn);
             roku_device_row_map.set(usn,device_row);
 
-            _roku_devices.set(device_row,0,roku_device.name,1,roku_device.usn);
         }
 
         private void resource_unavailable_cb(GSSDP.ResourceBrowser resource_browser, string usn){

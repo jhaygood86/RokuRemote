@@ -56,11 +56,14 @@ namespace Rokuremote {
 	    Gtk.Button ffwd_button;
 
 		private RokuManager roku_manager;
+		private GLib.Settings settings;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
 
             configure_style();
+
+            settings = new GLib.Settings ("com.reaktix.RokuRemote");
 
 		    roku_manager = new RokuManager();
 		    roku_manager.find_devices();
@@ -78,11 +81,11 @@ namespace Rokuremote {
 		    rwd_button.clicked.connect(on_rewind_clicked);
 		    play_button.clicked.connect(on_play_clicked);
 		    ffwd_button.clicked.connect(on_fastforward_clicked);
-
-		    Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
 		}
 
 		private void configure_style(){
+
+		    Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
 
             Gtk.CssProvider css_provider = new Gtk.CssProvider();
             css_provider.load_from_resource("/com/reaktix/RokuRemote/window.css");
@@ -92,6 +95,8 @@ namespace Rokuremote {
 		}
 
 		private void configure_roku_selector(){
+
+            roku_manager.roku_devices.row_inserted.connect(device_added);
 		    device_list.set_model(roku_manager.roku_devices);
 
 		    var renderer = new Gtk.CellRendererText();
@@ -107,6 +112,20 @@ namespace Rokuremote {
 
 		private void device_list_changed(Gtk.ComboBox device_list){
 		    activate_buttons();
+		    settings.set_string("last-used-device-usn",device_list.active_id);
+		}
+
+		private void device_added (Gtk.TreePath path, Gtk.TreeIter iter){
+            GLib.Value usn_value;
+            roku_manager.roku_devices.get_value(iter,1, out usn_value);
+            string usn = usn_value.get_string();
+
+
+            string current_usn = settings.get_string("last-used-device-usn");
+
+            if(current_usn == usn && device_list.active_id == null){
+                device_list.active_id = usn;
+            }
 		}
 
 		private void activate_buttons(){
