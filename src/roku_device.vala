@@ -7,6 +7,7 @@ namespace Rokuremote {
         private string _usn;
         private string _location;
         private string _name;
+        private string _application_name;
 
         public RokuDevice(string usn,GLib.List<string> locations){
             _usn = usn;
@@ -25,6 +26,10 @@ namespace Rokuremote {
 
         public string name {
             get { return _name; }
+        }
+
+        public string application_name {
+            get { return _application_name; }
         }
 
         private void load_device_info(){
@@ -50,6 +55,24 @@ namespace Rokuremote {
             var message = new Soup.Message("POST",keypress_url);
 
             session.queue_message(message, null);
+        }
+
+        public void load_current_application(){
+            var app_info_url = "%squery/active-app".printf(_location);
+
+            var session = new Soup.Session();
+            var message = new Soup.Message("GET",app_info_url);
+
+            session.queue_message(message,current_application_callback);
+        }
+
+        private void current_application_callback(Soup.Session session, Soup.Message message){
+            var memory_input_stream = new MemoryInputStream.from_data(message.response_body.data);
+
+            var document = new Document.from_stream(memory_input_stream);
+            var app_node = document.query_selector("app");
+
+            _application_name = app_node.text_content;
         }
     }
 }

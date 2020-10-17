@@ -55,8 +55,12 @@ namespace Rokuremote {
 	    [GtkChild]
 	    Gtk.Button ffwd_button;
 
+	    [GtkChild]
+	    Gtk.Statusbar status_bar;
+
 		private RokuManager roku_manager;
 		private GLib.Settings settings;
+		private uint app_info_timer;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
@@ -67,6 +71,8 @@ namespace Rokuremote {
 
 		    roku_manager = new RokuManager();
 		    roku_manager.find_devices();
+
+		    set_status("Finding Roku devices");
 
 		    configure_roku_selector();
 
@@ -113,6 +119,15 @@ namespace Rokuremote {
 		private void device_list_changed(Gtk.ComboBox device_list){
 		    activate_buttons();
 		    settings.set_string("last-used-device-usn",device_list.active_id);
+
+            if(app_info_timer > 0){
+                GLib.Source.remove(app_info_timer);
+            }
+
+		    app_info_timer = GLib.Timeout.add_full(GLib.Priority.DEFAULT,10000,on_appinfo_timer);
+		    on_appinfo_timer();
+
+		    set_status("Loading Now Active...");
 		}
 
 		private void device_added (Gtk.TreePath path, Gtk.TreeIter iter){
@@ -126,6 +141,8 @@ namespace Rokuremote {
             if(current_usn == usn && device_list.active_id == null){
                 device_list.active_id = usn;
             }
+
+            set_status("Found %d devices".printf(roku_manager.roku_devices.iter_n_children(null)));
 		}
 
 		private void activate_buttons(){
@@ -145,6 +162,19 @@ namespace Rokuremote {
 		private void press_roku_key(string key){
 		   var roku_device = roku_manager.get_device(device_list.active_id);
 		   roku_device.press_key(key);
+		}
+
+		private void set_status(string status){
+    		var context_id = status_bar.get_context_id ("roku");
+		    status_bar.push (context_id, status);
+		}
+
+		private bool on_appinfo_timer(){
+		    var roku_device = roku_manager.get_device(device_list.active_id);
+		    roku_device.load_current_application();
+		    set_status("Now Active: " + roku_device.application_name);
+
+		    return GLib.Source.CONTINUE;
 		}
 
 		private void on_back_clicked(Gtk.Button back_button){
