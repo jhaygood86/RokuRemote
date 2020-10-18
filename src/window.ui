@@ -7,7 +7,7 @@
     <property name="resizable">False</property>
     <property name="default_width">320</property>
     <property name="default_height">540</property>
-    <property name="icon_name">com.reaktix.RokuRemote.png</property>
+    <property name="icon_name">com.reaktix.RokuRemote</property>
     <child>
       <object class="GtkFixed">
         <property name="name">layout</property>
